@@ -2,7 +2,7 @@
   <div class="box formulario">
     <div class="columns">
       <div
-        class="column is-8"
+        class="column is-5"
         role="form"
         aria-label="Formulario para Criação de uma nova tarefa"
       >
@@ -13,6 +13,9 @@
           v-model="descricao"
         />
       </div>
+
+      
+
       <div class="column">
         <Temporizador @aoTemporizadorFinalizado="finalizarTarefa" />
       </div>
@@ -20,8 +23,11 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from "vue";
+import { computed, defineComponent } from "vue";
 import Temporizador from "./Temporizador.vue";
+import { useStore } from "vuex";
+import { key } from '@/store';
+
 
 export default defineComponent({
   name: "FormularioComponent",
@@ -42,6 +48,12 @@ export default defineComponent({
       });
       this.descricao = "";
     },
+    setup() {
+      const store = useStore(key);
+      return {
+        projetos: computed(() => store.state.projetos)
+      }
+    }
   },
 });
 </script>
