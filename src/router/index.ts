@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 import Tarefas from '../views/Tarefas.vue';
+import Projetos from '../views/Projetos.vue';
 
 
 const routes: RouteRecordRaw[] = [
@@ -8,11 +9,11 @@ const routes: RouteRecordRaw[] = [
     name: 'Tarefas',
     component: Tarefas
   },
-  // {
-  //   path: '',
-  //   name: '',
-  //   component: ,
-  // }
+  {
+    path: '/projetos',
+    name: 'Projetos',
+    component: Projetos,
+  }
 ]
 
 const router = createRouter({
