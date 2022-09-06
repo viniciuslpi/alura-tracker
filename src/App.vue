@@ -11,7 +11,7 @@
     </div>
   </main>
 </template>
-
+ 
 <script lang="ts">
 import { defineComponent } from "vue";
 import BarraLateral from "./components/BarraLateral.vue";
@@ -34,7 +34,7 @@ export default defineComponent({
 });
 </script>
 
-<style>
+<style scoped>
 .lista {
   padding: 1em;
 }
