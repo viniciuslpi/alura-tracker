@@ -22,7 +22,8 @@ export const store = createStore<Estado>({
             {
                 id: new Date().toISOString(),
                 nome: 'Vuex'
-            }
+            },
+            
         ]
     }
 })
