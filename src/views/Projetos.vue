@@ -16,52 +16,47 @@
       </div>
     </form>
     <table class="table is-fullwidth">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr v-for="projeto in projetos" :key="projeto.id">
-                <td>{{ projeto.id }}</td>
-                <td>{{ projeto.nome }}</td>
-            </tr>
-        </tbody>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="projeto in projetos" :key="projeto.id">
+          <td>{{ projeto.id }}</td>
+          <td>{{ projeto.nome }}</td>
+        </tr>
+      </tbody>
     </table>
   </section>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import Projeto from "../interfaces/Projeto"
-
-
+import { computed, defineComponent } from "vue";
+import { useStore } from "@/store";
 
 export default defineComponent({
   name: "ProjetosComponent",
   data() {
     return {
-        nomeDoProjeto: '',
-        projetos: [] as Projeto[]
-    }
-  }, 
+      nomeDoProjeto: "",
+    };
+  },
   methods: {
     salvar() {
-        const projeto: Projeto = {
-            nome: this.nomeDoProjeto,
-            id: new Date().toISOString()
-        }
-        this.projetos.push(projeto);
-        this.nomeDoProjeto = '';
-    console.log(this.projetos[0])
-    }
-    
+      this.store.commit('ADICIONA_PROJETO', this.nomeDoProjeto);
+      this.nomeDoProjeto = "";
+    },
+  },
+  setup() {
+    const store = useStore()
+    return { store, projetos: computed(() => store.state.projetos) }
   }
 });
 </script>
 <style scoped>
-    .projetos {
-        padding: 1.25rem;
-    }
+.projetos {
+  padding: 1.25rem;
+}
 </style>

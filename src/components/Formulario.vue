@@ -24,7 +24,7 @@
         </div>
       </div>
       <div class="column">
-        <Temporizador @aoFinalizarTarefa="salvarTarefa"/>
+        <Temporizador @aoTemporizadorFinalizado="salvarTarefa"/>
       </div>
     </div>
   </div>
@@ -55,6 +55,8 @@ export default defineComponent({
         descricao: this.descricao,
         projeto: this.projetos.find(proj => proj.id == this.idProjeto)
       })
+
+      console.log(tempoEmSegundos, this.descricao,this.projetos.find(proj => proj.id == this.idProjeto)) 
       this.descricao = ''
     }
   },

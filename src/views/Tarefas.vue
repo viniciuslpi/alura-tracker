@@ -34,7 +34,7 @@ export default defineComponent({
   methods: {
     salvarTarefa(tarefa: Tarefas) {
       this.tarefas.push(tarefa);
-    }
+    },
   },
 });
 </script> 
