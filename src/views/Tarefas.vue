@@ -38,3 +38,8 @@ export default defineComponent({
   },
 });
 </script> 
+<style scoped>
+  .lista {
+    padding: 20px;
+  }
+</style>
