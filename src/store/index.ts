@@ -21,6 +21,18 @@ export const store = createStore<Estado>({
                 descricao: "DEU BOM FILHAAAAO",
                 titulo: 'Sucesso',
                 tipo: TipoNotificacao.SUCESSO
+            },
+            {
+                id: 2,
+                descricao: "CUIDADOOO",
+                titulo: 'Atenção',
+                tipo: TipoNotificacao.ATENCAO
+            },
+            {
+                id: 3,
+                descricao: "DEU BOM NAO :/",
+                titulo: 'Erro',
+                tipo: TipoNotificacao.FALHA
             }
         ]
     },
